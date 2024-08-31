@@ -38,12 +38,10 @@ if(isloggedIn===null){
 }
     return (
         <Router>
-            <Navbar/>
+            <Navbar isloggedIn={isloggedIn}/>
             <Routes>
-              {/* <Route path='/' element={<GetBooks/>} />
-              <Route path='/addBook' element={<AdBooks/>} /> */}
               <Route path='/signup' element={<SignUp/>} />
-              <Route path='/login' element={<Login/>} />
+              <Route path='/login' element={<Login />} />
               <Route element={<PrivateRoute isloggedIn={isloggedIn} />}>
                     <Route path="/addBook" element={<AdBooks />} />
                     <Route path='/' element={<GetBooks/>} />

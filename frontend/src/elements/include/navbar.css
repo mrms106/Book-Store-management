@@ -1,3 +1,9 @@
 .navMain{
     background-color: white !important;
 }
+.navMain img{
+    height: 50px;
+    width: 150px;
+    margin-right: 50px;
+    margin-left: 10px;
+}
