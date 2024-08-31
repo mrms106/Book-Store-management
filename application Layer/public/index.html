@@ -1,0 +1,53 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Downloader</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>YouTube Downloader</h1>
+        <form id="downloadForm">
+            <input type="text" id="videoUrl" placeholder="Enter YouTube Video URL" required>
+            <select id="downloadType">
+                <option value="video">Download Video</option>
+                <option value="audio">Download Audio</option>
+            </select>
+            <button type="submit">Download</button>
+        </form>
+        <div id="result"></div>
+    </div>
+    <script >
+        // script.js
+const form = document.getElementById('downloadForm');
+
+form.addEventListener('submit', async function(event) {
+    event.preventDefault();
+    const videoUrl = document.getElementById('videoUrl').value;
+    const downloadType = document.getElementById('downloadType').value;
+
+    try {
+        const response = await fetch('/download', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ url: videoUrl, type: downloadType })
+        });
+        const data = await response.json();
+        if (data.success) {
+            document.getElementById('result').innerHTML = `<a href="${data.url}" download>Download ${downloadType}</a>`;
+        } else {
+            document.getElementById('result').innerHTML = `<p>${data.error}</p>`;
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+});
+
+    </script>
+</body>
+</html>
