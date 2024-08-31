@@ -6,7 +6,7 @@ const isLoggedIn=require("../middleware/isloggedin")
 
 route.post('/register', USerController.register);
 route.post('/login',passport.authenticate('local'), USerController.login);
-
+route.get("/logout",USerController.logout)
 route.get("/user",isLoggedIn,USerController.user)
 
 module.exports = route;

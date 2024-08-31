@@ -2,7 +2,23 @@ import './navbar.css'
 import logo from './logo.png'
 import { useNavigate } from 'react-router-dom';
 export default function Navbar({isloggedIn}){
-  console.log(isloggedIn)
+  
+const logout=async()=>{
+  try{
+  const responce=await fetch("http://localhost:8080/api/auth/logout",{
+    credentials:"include"
+  })
+  if(responce.ok){
+    alert("logout success")
+    navigate("/login")
+  }else{
+    alert("sommething went wrong try again")
+  }
+}catch(err){
+  console.log(err)
+}
+}
+
   const navigate=useNavigate()
     return(
         <>
@@ -16,7 +32,7 @@ export default function Navbar({isloggedIn}){
       <div className="navbar-nav">
         <span className="nav-link active" aria-current="page" onClick={()=>navigate("/")}>Home</span>
         <span className="nav-link active"onClick={()=>navigate("/addbook")} >Add Books</span>
-        {isloggedIn ? <span className="nav-link active" >Log-Out</span>
+        {isloggedIn ? <span className="nav-link active" onClick={logout}>Log-Out</span>
         :<span className="nav-link active" onClick={()=>navigate("/login")}>Log-In</span>
         }
         
