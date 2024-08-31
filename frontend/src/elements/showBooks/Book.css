@@ -3,5 +3,19 @@
     flex-direction: column;
     text-align: center;
     margin-left: 10px;
+   
     
+}
+.bookcard{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.maincard{
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.maincard img{
+    height: 200px;
 }

@@ -1,0 +1,29 @@
+.addBookform{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.addBookform form{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 500px;
+    
+}
+
+.addBookform form .input{
+    margin-top: 10px;
+    margin-left: 5px;
+}
+.addBookform form button{
+    margin-top: 10px;
+    width: 150px;
+    height: 50px;
+    border: 1px solid blue;
+    border-radius: 14px;
+    background-color: white;
+    color: black;
+    font-size: 18px;
+}

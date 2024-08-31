@@ -26,12 +26,15 @@ let [book,setbook]=useState([])
         <>
         <div className="Main-Book">
         <h1>Book list</h1>
+        <div className="bookcard">
        
         {
             book.map((bookdata,idx)=>(
+               
                 <Bookcard bookdata={bookdata} key={idx}/>
+               
             ))
-        }
+        } </div>
        </div>
         </>
     )

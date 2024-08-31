@@ -1,12 +1,22 @@
 export default function Bookcard({bookdata,idx}){
     return(
         <>
-    <div className="card" style={{width: "18rem"}}  >
-  {/* <img src="..." className="card-img-top" alt="..."/> */}
+    <div className="card maincard" style={{width: "18rem"}}  >
+  <img src={bookdata.image} className="card-img-top" alt="Book Image"/>
   <div className="card-body">
-    <h5 className="card-title">{bookdata.title}</h5>
-    <p className="card-text">{bookdata.description}</p>
-    <a href="#" className="btn btn-primary">Go somewhere</a>
+    <p>Name: <b className="card-title">{bookdata.title}</b></p>
+    <p>author: <b className="card-title">{bookdata.author}</b></p>
+    <p className="card-text">About : {bookdata.description}</p>
+ <p>
+ <span className="card-text">Stock: {bookdata.stock}</span> &nbsp; &nbsp;
+ <span className="card-text">price: ₹{bookdata.price}</span>
+ </p>
+    <p>
+    <button className="btn btn-primary">remove</button>&nbsp;
+    <button className="btn btn-primary">&nbsp;&nbsp;Sell&nbsp;&nbsp;</button>&nbsp;
+    <button className="btn btn-primary">Update</button>
+    </p>
+    
   </div>
 </div>
         </>
