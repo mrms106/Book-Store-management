@@ -1,0 +1,7 @@
+.Main-Book{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-left: 10px;
+    
+}
