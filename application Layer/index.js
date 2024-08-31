@@ -8,20 +8,38 @@ const UserRoute=require("./routes/user")
 const passport=require("passport")
 const session=require("express-session")
 const User=require("./modules/user")
+const MongoStore = require('connect-mongo');
+
 
 const coreOptions={
   origin:"http://localhost:5173",
   methods:"GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials:true
 }
+const dburl='mongodb://127.0.0.1:27017/bookstore'
+const store=MongoStore.create({
+  mongoUrl:dburl,
+  crypto:{
+    secret:"secret"
+  },
+  touchAfter:24*3600
+})
+
+const sessionOptions={
+  store,
+  secret:"secret",
+  resave:false,
+  saveUninitialized:false,
+  cookie:{
+    expires:Date.now()+ 2*24*60*60*1000,
+    maxAge: 2 * 24 * 60 * 60 * 1000,
+    // httpOnly:true,
+}
+}
 
 app.use(express.json());
 app.use(cors(coreOptions))
-app.use(session({
-  secret:"secret",
-  resave:false,
-  saveUninitialized:false
-}))
+app.use(session(sessionOptions))
 
 app.use(passport.initialize())
 app.use(passport.session())

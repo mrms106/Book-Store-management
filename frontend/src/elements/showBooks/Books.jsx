@@ -7,7 +7,9 @@ let [book,setbook]=useState([])
 
     const fetchData=async()=>{
         try{
-        const responce=await fetch("http://localhost:8080/api/books/book")
+        const responce=await fetch("http://localhost:8080/api/books/book",{
+            credentials:"include"
+        })
         if(!responce.ok){
             throw new Error(`HTTP error! Status: ${responce.status}`); 
         }
@@ -18,7 +20,7 @@ let [book,setbook]=useState([])
             console.log(err)
         }
     }
-    console.log(book)
+    // console.log(book)
     useEffect(()=>{
         fetchData()
     },[])

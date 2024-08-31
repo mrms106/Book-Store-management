@@ -22,3 +22,11 @@ module.exports.login=(req,res)=>{
     res.status(200).json({ message: 'Login successful', user: req.user });
 }
 
+module.exports.user=(req,res)=>{
+ const   user=req.body
+    try{
+    res.status(201).json({user})
+    }catch(err){
+        res.status(500).json({message:"error in get user"})
+    }
+}

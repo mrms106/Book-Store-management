@@ -1,8 +1,10 @@
-import { useState } from "react"
+import { useState} from "react"
 import TextField from '@mui/material/TextField';
 import '../addBooks/adbook.css'
+import { useNavigate } from 'react-router-dom';
 
 export default function Login(){
+    const navigate = useNavigate();
     let [form,setform]=useState({})
     const onInputChange=(event)=>{
         setform({...form,[event.target.name]:event.target.value})
@@ -20,6 +22,7 @@ export default function Login(){
             })
             if(responce.ok){
                 alert("User log In successfull")
+              navigate("/")
             }else(
                 alert("problem in login")
             )
