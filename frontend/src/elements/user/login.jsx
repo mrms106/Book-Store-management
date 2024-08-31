@@ -10,17 +10,18 @@ export default function Login(){
     const onFormSubmit=async(event)=>{
         event.preventDefault()
         try{
-            const responce= await fetch("",{
+            const responce= await fetch("http://localhost:8080/api/auth/login",{
                 method:"POST",
                 headers:{
                     'Content-Type' : 'application/json'
                 },
-                body:JSON.stringify(form)
+                body:JSON.stringify(form),
+                credentials:"include"
             })
             if(responce.ok){
-                alert("the user is registered successfull")
+                alert("User log In successfull")
             }else(
-                alert("the user is already present on system")
+                alert("problem in login")
             )
         }catch(err){
             console.log(err,"something went wroong")

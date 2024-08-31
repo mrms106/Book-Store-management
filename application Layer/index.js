@@ -4,6 +4,10 @@ const mongoose= require("mongoose")
 const path=require("path")
 const cors=require("cors")
 const bookRoute=require("./routes/book")
+const UserRoute=require("./routes/user")
+const passport=require("passport")
+const session=require("express-session")
+const User=require("./modules/user")
 
 const coreOptions={
   origin:"http://localhost:5173",
@@ -13,6 +17,18 @@ const coreOptions={
 
 app.use(express.json());
 app.use(cors(coreOptions))
+app.use(session({
+  secret:"secret",
+  resave:false,
+  saveUninitialized:false
+}))
+
+app.use(passport.initialize())
+app.use(passport.session())
+
+passport.use(User.createStrategy())
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser())
 
 main().catch(err => console.log(err));
 
@@ -26,6 +42,7 @@ app.get("/",(req,res)=>{
 })
 
 app.use("/api/books",bookRoute)
+app.use("/api/auth",UserRoute)
 
 app.listen("8080",()=>{
   console.log("port is running on 8080")
