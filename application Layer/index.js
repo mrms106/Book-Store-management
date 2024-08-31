@@ -3,6 +3,7 @@ const app=express()
 const mongoose= require("mongoose")
 const path=require("path")
 const cors=require("cors")
+const bookRoute=require("./routes/book")
 
 const coreOptions={
   origin:"",
@@ -23,6 +24,8 @@ async function main() {
 app.get("/",(req,res)=>{
   res.send("working ")
 })
+
+app.use("/api/books",bookRoute)
 
 app.listen("8080",()=>{
   console.log("port is running on 8080")
