@@ -5,7 +5,7 @@ import Navbar from './elements/include/Navbar';
 import AdBooks from './elements/addBooks/AdBooks';
 import SignUp from './elements/user/signup';
 import Login from './elements/user/login';
-
+import PrivateRoute from './protected';
 
 const App = () => {
 let[curruser,setcurruser]=useState(null)
@@ -40,11 +40,14 @@ if(isloggedIn===null){
         <Router>
             <Navbar/>
             <Routes>
-              <Route path='/' element={<GetBooks/>} />
-              <Route path='/addBook' element={<AdBooks/>} />
+              {/* <Route path='/' element={<GetBooks/>} />
+              <Route path='/addBook' element={<AdBooks/>} /> */}
               <Route path='/signup' element={<SignUp/>} />
               <Route path='/login' element={<Login/>} />
-
+              <Route element={<PrivateRoute isloggedIn={isloggedIn} />}>
+                    <Route path="/addBook" element={<AdBooks />} />
+                    <Route path='/' element={<GetBooks/>} />
+                </Route>
             </Routes>
         </Router>
     );

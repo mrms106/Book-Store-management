@@ -23,7 +23,7 @@ module.exports.login=(req,res)=>{
 }
 
 module.exports.user=(req,res)=>{
- const   user=req.body
+ const   user=req.user
     try{
     res.status(201).json({user})
     }catch(err){
