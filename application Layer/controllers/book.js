@@ -35,3 +35,14 @@ module.exports.addBook=async (req, res) => {
         });
     }
 }
+
+module.exports.delete=async(req,res)=>{
+     const id=req.params.id
+     try{
+        await books.findByIdAndDelete(id)
+        res.status(200).json({message:"the bookdata is deleted"})
+     }catch(err){
+        console.log(err,"deleting to the book")
+        res.status(500).json({message:"error in deleting the book"})
+     }
+}

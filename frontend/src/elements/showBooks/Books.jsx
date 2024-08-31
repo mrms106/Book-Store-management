@@ -20,7 +20,7 @@ let [book,setbook]=useState([])
             console.log(err)
         }
     }
-    // console.log(book)
+    console.log(book)
     useEffect(()=>{
         fetchData()
     },[])
