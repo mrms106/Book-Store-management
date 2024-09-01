@@ -1,5 +1,8 @@
-export default function Bookcard({bookdata,idx}){
+import { useNavigate } from 'react-router-dom';
 
+
+export default function Bookcard({bookdata,idx}){
+const navigate=useNavigate()
 const deleteBook=async()=>{
   const responce=await fetch(`http://localhost:8080/api/books/delete/${bookdata._id}`,{
     method:"DELETE"
@@ -27,7 +30,7 @@ const deleteBook=async()=>{
     <p>
     <button className="btn btn-primary" onClick={deleteBook}>remove</button>&nbsp;
     <button className="btn btn-primary">&nbsp;&nbsp;Sell&nbsp;&nbsp;</button>&nbsp;
-    <button className="btn btn-primary">Update</button>
+    <button className="btn btn-primary" onClick={()=>navigate(`/update/${bookdata._id}`)}>Update</button>
     </p>
     
   </div>

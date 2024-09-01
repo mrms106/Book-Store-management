@@ -6,6 +6,7 @@ import AdBooks from './elements/addBooks/AdBooks';
 import SignUp from './elements/user/signup';
 import Login from './elements/user/login';
 import PrivateRoute from './protected';
+import UpdateBook from './elements/addBooks/updatebook';
 
 const App = () => {
 let[curruser,setcurruser]=useState(null)
@@ -45,6 +46,7 @@ if(isloggedIn===null){
               <Route element={<PrivateRoute isloggedIn={isloggedIn} />}>
                     <Route path="/addBook" element={<AdBooks />} />
                     <Route path='/' element={<GetBooks/>} />
+                    <Route path="/update/:id" element={<UpdateBook />} />
                 </Route>
             </Routes>
         </Router>

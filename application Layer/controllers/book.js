@@ -46,3 +46,30 @@ module.exports.delete=async(req,res)=>{
         res.status(500).json({message:"error in deleting the book"})
      }
 }
+
+module.exports.getupdate=async(req,res)=>{
+    const id=req.params.id
+    try{
+      const book= await books.findById(id)
+      res.status(200).json({message:"the data fetched success",
+        book:book
+      })
+
+    }catch(err){
+        res.status(500).json({
+            message:"something went wrong",err
+        })
+        console.log(err)
+    }
+}
+
+module.exports.update=async(req,res)=>{
+    const id=req.params.id
+    const book=req.body
+    try{
+
+        books.findByIdAndUpdate
+    }catch(err){
+        
+    }
+}
