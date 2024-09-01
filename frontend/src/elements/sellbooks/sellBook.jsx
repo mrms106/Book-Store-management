@@ -1,7 +1,7 @@
 import TextField from '@mui/material/TextField';
 import { useState,useEffect } from 'react';
 import SellCard from './sellcard';
-import { json, useNavigate,useParams } from 'react-router-dom';
+import {  useNavigate,useParams } from 'react-router-dom';
 
 
 export default function SellBook(){

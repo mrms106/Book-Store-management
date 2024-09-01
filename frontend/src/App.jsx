@@ -7,7 +7,7 @@ import SignUp from './elements/user/signup';
 import Login from './elements/user/login';
 import PrivateRoute from './protected';
 import UpdateBook from './elements/addBooks/updatebook';
-import SellBook from './elements/showBooks/sellBook';
+import SellBook from './elements/sellbooks/sellBook';
 
 const App = () => {
 let[curruser,setcurruser]=useState(null)
