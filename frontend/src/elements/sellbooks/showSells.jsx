@@ -29,13 +29,15 @@ export default function Sells(){
 
     // Add receipt content
     doc.setFontSize(20);
-    doc.text("Receipt for Sale", 20, 20);
+    doc.text("Receipt of Sale", 20, 20);
     
     doc.setFontSize(12);
     doc.text(`Name: ${sell.name}`, 20, 40);
-    doc.text(`Price: $${sell.price}`, 20, 50);
+    doc.text(`Book-Name: ${sell.bookname}`, 20, 80);
+    doc.text(`Price:${sell.price} RS`, 20, 50);
     doc.text(`Date: ${sell.date}`, 20, 60);
     doc.text(`Stock Sold: ${sell.stock}`, 20, 70);
+    doc.text(`Phone: ${sell.phone}`, 20, 90);
 
     // Save the PDF with a filename
     doc.save(`receipt_${sell.name}.pdf`);

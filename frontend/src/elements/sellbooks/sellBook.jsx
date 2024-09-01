@@ -20,6 +20,11 @@ export default function SellBook(){
         }
         const data= await responce.json()
         setdata(data.book)
+        setform(prevForm => ({
+            ...prevForm,
+            bookname: data.book.title,  
+            price: data.book.price 
+        }));
         
         }catch(err){
             console.log(err)
@@ -56,6 +61,7 @@ export default function SellBook(){
             })
             if(responce.ok){
                 alert("the receipt is generated")
+                navigate("/receipts")
             }else{
                 alert("problem in generating the receipt")
             }
@@ -80,9 +86,10 @@ export default function SellBook(){
         <TextField id="outlined-basic" label="stock" 
         variant="outlined" name='stock' 
         type='number' className='input'
-         defaultValue={1} />
+         defaultValue={0} />
         </span>
         <TextField id="outlined-basic" label="description" variant="outlined" name='date' type='date' className='input' focused/>
+        <TextField id="outlined-basic" label="Book-Name" variant="outlined" name='bookname' type='text' className='input' value={form.bookname}  focused/>
         <button>Get receipt</button>
         </form>
         </div>
