@@ -65,11 +65,16 @@ module.exports.getupdate=async(req,res)=>{
 
 module.exports.update=async(req,res)=>{
     const id=req.params.id
-    const book=req.body
+    const updatedata=req.body
     try{
 
-        books.findByIdAndUpdate
-    }catch(err){
-        
+      const updateBook= await books.findByIdAndUpdate(id,updatedata,{ new: true})
+      if (!updateBook) {
+        return res.status(404).json({ message: 'Book not found' });
     }
+    res.status(200).json({ message: 'Book updated successfully', book: updateBook });
+} catch (err) {
+    console.error('Error updating book:', err);
+    res.status(500).json({ message: 'Internal server error' });
 }
+};

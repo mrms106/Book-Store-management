@@ -27,3 +27,8 @@
     color: black;
     font-size: 18px;
 }
+
+.addBookform form  img{
+    width:250px;
+    height: auto;
+}

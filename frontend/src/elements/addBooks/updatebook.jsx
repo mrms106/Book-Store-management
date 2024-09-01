@@ -6,7 +6,6 @@ import { useNavigate,useParams } from 'react-router-dom';
 export default function UpdateBook(){
 
     let [form,setform]=useState({})
-
     const { id } = useParams(); 
 
     const fetchData=async()=>{
@@ -36,7 +35,7 @@ export default function UpdateBook(){
     const onFormSubmit=async(event)=>{
       event.preventDefault();
         try{
-            const response= await fetch("http://localhost:8080/api/books/update",{
+            const response= await fetch(`http://localhost:8080/api/books/update/${id}`,{
                 method:"POST",
                 headers: {
                     'Content-Type': 'application/json',
@@ -56,22 +55,36 @@ export default function UpdateBook(){
     }
     return(
         <>
-        <div className="addBookform">
+        <div className="addBookform updatebook">
         <h3>Update the Book data</h3>
-        <form onSubmit={onFormSubmit} onChange={onINputChange}>
+        <form onSubmit={onFormSubmit}  >
         <span>
-        <TextField id="outlined-basic" label="title" variant="outlined" name='title' className='input' value={form.title}
-          onChange={onINputChange} />
-        <input value={form.title}></input>
-        <TextField id="outlined-basic" label="author" variant="outlined" name='author' className='input'/>
+        <TextField id="outlined-required" label="title"  name='title' className='input'
+          value={form.title}
+          onChange={onINputChange}  focused/>
+          
+          
+        <TextField id="outlined-basic" label="author" variant="outlined" name='author' className='input'
+        value={form.author}
+        onChange={onINputChange} focused/>
         </span>
         <span>
-        <TextField id="outlined-basic" label="price" variant="outlined" name='price' type='number' className='input' />
-        <TextField id="outlined-basic" label="stock" variant="outlined" name='stock' type='number' className='input'/>
+        <TextField id="outlined-basic" label="price" variant="outlined" name='price' type='number' className='input'
+        value={form.price}
+        onChange={onINputChange}  focused/>
+        <TextField id="outlined-basic" label="stock" variant="outlined" name='stock' type='number' className='input'
+        value={form.stock}
+        onChange={onINputChange} focused/>
         </span>
-        <TextField id="outlined-basic" label="description" variant="outlined" name='description' className='input'/>
-        <TextField id="outlined-basic" label="Add image link" variant="outlined" name='image' type='link' className='input'/>
+        <TextField id="outlined-basic" label="description" variant="outlined" name='description' className='input'
+        value={form.description}
+        onChange={onINputChange} focused/>
+         <img src={form.image} alt={form.title}></img>
+        <TextField id="outlined-basic" label="Add image link" variant="outlined" name='image' type='link' className='input'
+        value={form.image}
+        onChange={onINputChange} focused/>
         <button>Add</button>
+       
         </form>
         </div>
         </>
