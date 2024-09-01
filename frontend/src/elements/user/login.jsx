@@ -1,6 +1,7 @@
 import { useState} from "react"
 import TextField from '@mui/material/TextField';
 import '../addBooks/adbook.css'
+import'./login.css'
 import { useNavigate } from 'react-router-dom';
 
 export default function Login(){
@@ -33,7 +34,7 @@ export default function Login(){
     }
     return(
         <>
-        <div className="addBookform">
+        <div className="addBookform login">
         <h3>Login</h3>
         <form onSubmit={onFormSubmit} onChange={onInputChange}>
         <TextField id="outlined-basic" label="username" variant="outlined" name='username' type="username" className='input' required />

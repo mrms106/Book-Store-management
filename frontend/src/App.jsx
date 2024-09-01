@@ -9,6 +9,7 @@ import PrivateRoute from './protected';
 import UpdateBook from './elements/addBooks/updatebook';
 import SellBook from './elements/sellbooks/sellBook';
 import Sells from './elements/sellbooks/showSells';
+import Footer from './elements/include/footer';
 
 const App = () => {
 let[curruser,setcurruser]=useState(null)
@@ -54,6 +55,7 @@ if(isloggedIn===null){
 
                 </Route>
             </Routes>
+            <Footer/>
         </Router>
     );
 };
