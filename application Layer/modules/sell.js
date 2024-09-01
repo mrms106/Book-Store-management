@@ -20,6 +20,10 @@ const sellSchema=new mongoose.Schema({
     date:{
         type:String,
         require:true
+    },
+    bookname:{
+        type:String,
+        require:true
     }
 
 })

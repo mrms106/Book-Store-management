@@ -8,6 +8,7 @@ import Login from './elements/user/login';
 import PrivateRoute from './protected';
 import UpdateBook from './elements/addBooks/updatebook';
 import SellBook from './elements/sellbooks/sellBook';
+import Sells from './elements/sellbooks/showSells';
 
 const App = () => {
 let[curruser,setcurruser]=useState(null)
@@ -49,6 +50,7 @@ if(isloggedIn===null){
                     <Route path='/' element={<GetBooks/>} />
                     <Route path="/update/:id" element={<UpdateBook />} />
                     <Route path="/sell/:id" element={<SellBook />} />
+                    <Route path="/receipts" element={<Sells />} />
 
                 </Route>
             </Routes>
