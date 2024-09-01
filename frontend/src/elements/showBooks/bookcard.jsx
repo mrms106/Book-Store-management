@@ -30,7 +30,7 @@ const deleteBook=async()=>{
  </p>
     <p>
     <button className="btn btn-primary" onClick={deleteBook}>remove</button>&nbsp;
-    <button className="btn btn-primary">&nbsp;&nbsp;Sell&nbsp;&nbsp;</button>&nbsp;
+    <button className="btn btn-primary" onClick={()=>navigate(`/sell/${bookdata._id}`)}>&nbsp;&nbsp;Sell&nbsp;&nbsp;</button>&nbsp;
     <button className="btn btn-primary" onClick={()=>navigate(`/update/${bookdata._id}`)}>Update</button>
     </p>
     
