@@ -46,7 +46,7 @@ export default function SellBook(){
             return;
          }
          try{
-            const responce=await fetch("",{
+            const responce=await fetch(`http://localhost:8080/api/books/sell/${id}`,{
                 method:"POST",
                 headers:{
                     'Content-type':'application/json'
@@ -72,8 +72,8 @@ export default function SellBook(){
         <h3>Sell Book</h3>
         <form onSubmit={onFormSubmit} onChange={onInputChange}>
         <span>
-        <TextField id="outlined-basic" label="Buyer name" variant="outlined" name='title' className='input' />
-        <TextField id="outlined-basic" label="Buyer phone" variant="outlined" name='author' className='input'/>
+        <TextField id="outlined-basic" label="Buyer name" variant="outlined" name='name' className='input' />
+        <TextField id="outlined-basic" label="Buyer phone" variant="outlined" name='phone' type='number' className='input'/>
         </span>
         <span>
         <TextField id="outlined-basic" label="price" variant="outlined" name='price' type='number' className='input' defaultValue={0}  value={form.price } disabled focused/>
@@ -82,7 +82,7 @@ export default function SellBook(){
         type='number' className='input'
          defaultValue={1} />
         </span>
-        <TextField id="outlined-basic" label="description" variant="outlined" name='description' type='date' className='input' focused/>
+        <TextField id="outlined-basic" label="description" variant="outlined" name='date' type='date' className='input' focused/>
         <button>Get receipt</button>
         </form>
         </div>

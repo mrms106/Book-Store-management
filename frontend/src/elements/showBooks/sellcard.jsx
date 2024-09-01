@@ -10,9 +10,9 @@ export default function SellCard({form}){
                 <p className="sell-text-body">Author:{form.author}</p>
                 <p className="sell-text-body"><b>About:</b> &nbsp;{form.description}</p>
             </div>
-            <div class="sell-card-footer">
-            <span class="sell-text-title">₹{form.price}</span>
-            <span class="sell-text-title">stock: {form.stock}</span>
+            <div className="sell-card-footer">
+            <span className="sell-text-title">₹{form.price}</span>
+            <span className="sell-text-title">stock: {form.stock}</span>
             </div></div>
         </div>
         </>
