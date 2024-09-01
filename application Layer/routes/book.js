@@ -11,6 +11,7 @@ route.post("/update/:id",BookController.update)
 route.get("/update/:id",BookController.getupdate)
 
 route.post("/sell/:id",sellController.sells)
+route.get("/sell",sellController.showsells)
 
 
 module.exports=route;
