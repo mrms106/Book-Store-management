@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 
 
-export default function Bookcard({bookdata,idx}){
+export default function Bookcard({bookdata,idx,fetchData}){
 const navigate=useNavigate()
 const deleteBook=async()=>{
   const responce=await fetch(`http://localhost:8080/api/books/delete/${bookdata._id}`,{
@@ -9,6 +9,7 @@ const deleteBook=async()=>{
   })
   if(responce.ok){
     const result = await responce.json();
+    fetchData()
     alert("the book is deleted",result)
   }else(
     alert("error in deleting the book")

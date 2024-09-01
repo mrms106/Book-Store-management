@@ -33,7 +33,7 @@ let [book,setbook]=useState([])
         {
             book.map((bookdata,idx)=>(
                
-                <Bookcard bookdata={bookdata} key={idx}/>
+                <Bookcard bookdata={bookdata} key={idx} fetchData={fetchData}/>
                
             ))
         } </div>

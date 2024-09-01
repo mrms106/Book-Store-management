@@ -7,7 +7,7 @@ export default function UpdateBook(){
 
     let [form,setform]=useState({})
     const { id } = useParams(); 
-
+const navigate=useNavigate()
     const fetchData=async()=>{
         try{
         const responce=await fetch(`http://localhost:8080/api/books/update/${id}`,{
@@ -45,6 +45,7 @@ export default function UpdateBook(){
             })
             if(response.ok){
                 alert("the book is updated")
+                navigate("/")
             }else{
                 alert("problem in update the book")
             }

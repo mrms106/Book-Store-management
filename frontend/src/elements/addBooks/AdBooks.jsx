@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import './adbook.css'
 import AddInput from './addinputs';
+import { useNavigate } from 'react-router-dom';
 export default function AdBooks(){
-
+   const navigate=useNavigate()
     let [form,setform]=useState({})
 
     const onINputChange=(event)=>{
@@ -20,7 +21,8 @@ export default function AdBooks(){
                 body:JSON.stringify(form)
             })
             if(response.ok){
-                alert("the form is submitted")
+                alert("the Book is Added")
+                navigate("/")
             }else{
                 alert("probkem in submission")
             }
