@@ -7,7 +7,7 @@ import SearchIcon from '@mui/icons-material/Search';
 
 export default function GetBooks(){
 let [book,setbook]=useState([])
-
+const [search, setSearch] = useState("");
     const fetchData=async()=>{
         try{
         const responce=await fetch("http://localhost:8080/api/books/book",{
@@ -27,6 +27,10 @@ let [book,setbook]=useState([])
     useEffect(()=>{
         fetchData()
     },[])
+    const filteredBooks = book.filter((bookdata) =>
+        bookdata.title.toLowerCase().includes(search.toLowerCase()) ||
+        bookdata.author.toLowerCase().includes(search.toLowerCase())
+    );
     return(
         <>
         <div className="Main-Book">
@@ -35,7 +39,7 @@ let [book,setbook]=useState([])
         
         <div className="book-search">
             <div>
-                <TextField id="outlined-basic" label="Search-Book" variant="outlined" />
+                <TextField id="outlined-basic" label="Search-Book" variant="outlined"  onChange={(e) => setSearch(e.target.value)} />
                 <Button variant="contained" style={{margin: "5px 0px 0px 5px",height:"50px", width:"10px"}} >
                 <SearchIcon style={{fontSize:"30px"}}/>
                 </Button>
@@ -51,7 +55,7 @@ let [book,setbook]=useState([])
         <div className="bookcard">
        
         {
-            book.map((bookdata,idx)=>(
+            filteredBooks.map((bookdata,idx)=>(
                
                 <Bookcard bookdata={bookdata} key={idx} fetchData={fetchData}/>
                
