@@ -21,16 +21,33 @@
     margin-top: 10px;
     width: 150px;
     height: 50px;
-    border: 1px solid blue;
+    border: 1px solid rgb(50, 50, 235);
     border-radius: 14px;
     background-color: white;
     color: black;
     font-size: 18px;
 }
+.addBookform form button:hover{
+background-color: rgb(50, 50, 235);
+color: white;
+}
 
 .addBookform form  img{
     width:250px;
     height: auto;
+}
+@media(max-width:768px){
+    .addBookform form{
+        width: 80%;
+    }
+    .addBookform form span {
+        display: contents;
+    }
+    .sellbook{
+        display: flex;
+        justify-content: center;
+        flex-direction: column-reverse;
+    }
 }
 .sellbook{
     display: flex;
