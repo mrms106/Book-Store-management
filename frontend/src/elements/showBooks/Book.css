@@ -1,21 +1,78 @@
-.Main-Book{
-    display: flex;
-    flex-direction: column;
+
+.Main-Book {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.Main-Book h1 {
     text-align: center;
-    margin-left: 10px;
-   
+    margin-bottom: 30px;
+    font-family: 'Arial', sans-serif;
+    font-size: 2.5rem;
+    color: #333;
+}
+
+.bookcard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     
 }
-.bookcard{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+
+.maincard {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
-.maincard{
-    margin-left: 10px;
-    margin-top: 10px;
+
+.maincard:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
-.maincard img{
+
+.card-img-top {
     height: 200px;
+    /* object-fit: cover; */
+}
+
+.card-body {
+    padding: 15px;
+    font-family: 'Arial', sans-serif;
+    color: #555;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    color: #333;
+}
+
+.card-text {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #777;
+}
+
+.card-body p {
+    margin: 0;
+}
+
+.card-body button {
+    margin-top: 10px;
+    margin-right: 5px;
+    font-size: 0.9rem;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.card-body button.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.card-body button.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
 }
