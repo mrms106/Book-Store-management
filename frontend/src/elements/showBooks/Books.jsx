@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react"
 import Bookcard from "./bookcard"
 import './Book.css'
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import SearchIcon from '@mui/icons-material/Search';
 
 export default function GetBooks(){
 let [book,setbook]=useState([])
@@ -27,7 +30,24 @@ let [book,setbook]=useState([])
     return(
         <>
         <div className="Main-Book">
-        <h1>Book list</h1>
+        <h1> Available Books </h1>
+        <div className="book-span"></div>
+        
+        <div className="book-search">
+            <div>
+                <TextField id="outlined-basic" label="Search-Book" variant="outlined" />
+                <Button variant="contained" style={{margin: "5px 0px 0px 5px",height:"50px", width:"10px"}} >
+                <SearchIcon style={{fontSize:"30px"}}/>
+                </Button>
+            </div>
+            <div>
+                <div className="form-check form-switch switch" >
+                    Show Recentlly Add
+                    <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
+                </div>
+          </div>
+        </div>
+        
         <div className="bookcard">
        
         {

@@ -1,4 +1,9 @@
-
+body{
+    font-family: "Arimo", sans-serif;
+}
+.content{
+    min-height: 70vh;
+}
 .Main-Book {
     padding: 20px;
     max-width: 1200px;
@@ -7,10 +12,30 @@
 
 .Main-Book h1 {
     text-align: center;
-    margin-bottom: 30px;
-    font-family: 'Arial', sans-serif;
+    margin-bottom: 10px;
     font-size: 2.5rem;
     color: #333;
+}
+.book-span{
+    background-color: black;
+    height: 1px;
+    width: 400px;
+    margin-left: 32%;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.book-search{
+    margin-bottom: 50px;
+    display: flex;
+    
+}
+.switch{
+    margin-left: 550px;
+  padding-top: 5px;
+  height: 40px;
+  border: 1px solid rgb(50, 50, 235);
+  border-radius: 10px;
+  width: 220px;
 }
 
 .bookcard {
@@ -28,7 +53,7 @@
 }
 
 .maincard:hover {
-    transform: translateY(-15px);
+    transform: translateY(-10px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
@@ -75,4 +100,18 @@
 .card-body button.btn-primary:hover {
     background-color: #0056b3;
     border-color: #0056b3;
+}
+
+@media(max-width:768px){
+    .book-span{
+        background-color: black;
+        height: 1px;
+        width: auto;
+        margin-left: 5%;
+        margin-bottom: 30px;
+    }
+    .switch{
+       display: none;
+    }
+    
 }

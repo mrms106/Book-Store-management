@@ -43,7 +43,9 @@ if(isloggedIn===null){
     return (
         <Router>
             <Navbar isloggedIn={isloggedIn}/>
+            <div className="content">
             <Routes>
+                
               <Route path='/signup' element={<SignUp/>} />
               <Route path='/login' element={<Login />} />
               <Route element={<PrivateRoute isloggedIn={isloggedIn} />}>
@@ -52,9 +54,11 @@ if(isloggedIn===null){
                     <Route path="/update/:id" element={<UpdateBook />} />
                     <Route path="/sell/:id" element={<SellBook />} />
                     <Route path="/receipts" element={<Sells />} />
-
+                   
                 </Route>
+                
             </Routes>
+            </div>
             <Footer/>
         </Router>
     );

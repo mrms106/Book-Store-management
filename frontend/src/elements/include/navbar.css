@@ -1,9 +1,18 @@
 .navMain{
     background-color: white !important;
+    font-size: 18px;
+    min-height: 80px;
+}
+.navMain span{
+    color: rgb(15, 24, 54) !important;
+    font-weight: bold; 
+}
+.navMain span:hover{
+    color: rgb(58, 67, 100) !important;
 }
 .navMain img{
-    height: 50px;
-    width: 150px;
+    height: 70px;
+    width: 160px;
     margin-right: 50px;
     margin-left: 10px;
 }
