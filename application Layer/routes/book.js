@@ -12,6 +12,7 @@ route.get("/update/:id",BookController.getupdate)
 route.post("/add/:id",BookController.addBasket)
 
 route.post("/sell/:id",sellController.sells)
+route.post("/sell",sellController.sellsmulti)
 route.get("/sell",sellController.showsells)
 
 

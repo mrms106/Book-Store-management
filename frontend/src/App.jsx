@@ -10,7 +10,7 @@ import UpdateBook from './elements/addBooks/updatebook';
 import SellBook from './elements/sellbooks/sellBook';
 import Sells from './elements/sellbooks/showSells';
 import Footer from './elements/include/footer';
-
+import Basket from './elements/showBooks/basket';
 const App = () => {
 let[curruser,setcurruser]=useState(null)
 let[isloggedIn,setisloggedIn]=useState(null)
@@ -54,7 +54,8 @@ if(isloggedIn===null){
                     <Route path="/update/:id" element={<UpdateBook />} />
                     <Route path="/sell/:id" element={<SellBook />} />
                     <Route path="/receipts" element={<Sells />} />
-                   
+                    <Route path="/buybasket" element={<Basket />} />
+                    
                 </Route>
                 
             </Routes>

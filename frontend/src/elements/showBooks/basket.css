@@ -1,0 +1,7 @@
+.basket-card .stock{
+    display: none;
+}
+.basket-card{
+    display: flex;
+    flex-wrap: wrap;
+}
