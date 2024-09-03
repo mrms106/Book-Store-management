@@ -28,18 +28,20 @@ export default function Basket(){
     });
     return(
         <>
-        <div style={{display:"flex"}}>
+        <div className="basket-card-main">
            <div className="basket-card">
+            
             {
                 basketData.map((basketBook,idx)=>(
                     // <li key={idx}>{basketBook.title}</li>
-                    <SellCard form={basketBook} />
+                    <SellCard form={basketBook} key={idx} fetchData={fetchData} />
                 ))
             }
                 
             </div>
-            <div>
-                <BasketBuy basketData={basketData}/>
+            <div className="basket-inputs">
+                <h2>Buyer details</h2>
+                <BasketBuy basketData={basketData} />
             </div>
             </div>
            

@@ -3,7 +3,18 @@
     display: flex;
     justify-content: center;
 }
+.sellbook .sell-card button{
+  display: none;
 
+}
+.sell-card button{
+  border-radius: 10px;
+  border: 1px solid rgb(26, 26, 50);
+}
+.sell-card button:hover{
+  background-color: white;
+  border: 1px solid white;
+}
 .sell-card {
     width: 200px;
     height: auto;

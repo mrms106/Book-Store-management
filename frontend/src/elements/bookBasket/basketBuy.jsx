@@ -91,6 +91,17 @@ export default function BasketBuy({ basketData }) {
        
                     {form.books.map((book, idx) => (
                         <div key={book.bookId} className="book-details">
+                             <TextField 
+                                id={`bookname-${idx}`} 
+                                label="Book Name" 
+                                variant="outlined" 
+                                name="bookname" 
+                                type='text' 
+                                className='input' 
+                                value={book.title} 
+                                disabled 
+                                focused 
+                            />
                             <span>
                                 <TextField 
                                     id={`price-${idx}`} 
@@ -113,17 +124,7 @@ export default function BasketBuy({ basketData }) {
                                     onChange={(event) => onInputChange(event, idx)}
                                 />
                             </span>
-                            <TextField 
-                                id={`bookname-${idx}`} 
-                                label="Book Name" 
-                                variant="outlined" 
-                                name="bookname" 
-                                type='text' 
-                                className='input' 
-                                value={book.title} 
-                                disabled 
-                                focused 
-                            />
+                           
                         </div>
                     ))}
                     <TextField 
@@ -134,6 +135,7 @@ export default function BasketBuy({ basketData }) {
                         type='date' 
                         className='input' 
                         onChange={onInputChange}
+                        focused
                     />
        
                     <button type="submit">Get receipt</button>
