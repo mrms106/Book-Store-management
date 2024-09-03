@@ -1,7 +1,10 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 
 export default function Bookcard({bookdata,idx,fetchData}){
+  const[basket,setbasket]=useState(false)
+
 const navigate=useNavigate()
 const deleteBook=async()=>{
   const responce=await fetch(`http://localhost:8080/api/books/delete/${bookdata._id}`,{
@@ -15,6 +18,27 @@ const deleteBook=async()=>{
     alert("error in deleting the book")
   )
 }
+
+const addBasket=async()=>{
+  setbasket(true)
+  try{
+    const responce=await fetch(`http://localhost:8080/api/books/add/${bookdata._id}`,{
+      method:"POST",
+      headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ inBasket: true }),
+    })
+    if(!responce.ok){
+      alert("problem in add basket")
+      return;
+    }
+    alert("added in basket")
+  }catch(err){
+    console.log(err)
+  }
+}
+console.log(basket,"the basket value")
 
     return(
         <>
@@ -32,6 +56,7 @@ const deleteBook=async()=>{
     <button className="btn btn-primary" onClick={deleteBook}>remove</button>&nbsp;
     <button className="btn btn-primary" onClick={()=>navigate(`/sell/${bookdata._id}`)}>&nbsp;&nbsp;Sell&nbsp;&nbsp;</button>&nbsp;
     <button className="btn btn-primary" onClick={()=>navigate(`/update/${bookdata._id}`)}>Update</button>
+    <button className="btn btn-primary" onClick={addBasket}>Add</button>
     </p>
     
   </div>

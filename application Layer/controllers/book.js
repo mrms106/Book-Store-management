@@ -78,3 +78,26 @@ module.exports.update=async(req,res)=>{
     res.status(500).json({ message: 'Internal server error' });
 }
 };
+
+module.exports.addBasket=async(req,res)=>{
+  const booklId=req.params.id;
+  const { inBasket } = req.body; 
+  console.log(inBasket)
+  try{
+    const book=await books.findByIdAndUpdate(booklId,{inBasket:inBasket},{ new: true } )
+    res.status(200).json({
+        message:"the book is added in basket",
+        book: book,
+    })
+    if (!book) {
+        return res.status(404).json({
+          message: "Book not found",
+        });
+      }
+  }catch(err){
+    console.log(err)
+    res.status(500).json({
+        message:"problem in add the book"
+    })
+  }
+}

@@ -9,6 +9,7 @@ route.post("/bookadd", BookController.addBook);
 route.delete("/delete/:id",BookController.delete)
 route.post("/update/:id",BookController.update)
 route.get("/update/:id",BookController.getupdate)
+route.post("/add/:id",BookController.addBasket)
 
 route.post("/sell/:id",sellController.sells)
 route.get("/sell",sellController.showsells)
