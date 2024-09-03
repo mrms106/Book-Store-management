@@ -8,6 +8,8 @@ import SearchIcon from '@mui/icons-material/Search';
 export default function GetBooks(){
 let [book,setbook]=useState([])
 const [search, setSearch] = useState("");
+const [addmulti,setaddmulti]=useState(false)
+console.log(addmulti)
     const fetchData=async()=>{
         try{
         const responce=await fetch("http://localhost:8080/api/books/book",{
@@ -46,8 +48,8 @@ const [search, setSearch] = useState("");
             </div>
             <div>
                 <div className="form-check form-switch switch" >
-                    Show Recentlly Add
-                    <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
+                    Sell multiple Books
+                    <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onClick={()=>setaddmulti(!addmulti)}/>
                 </div>
           </div>
         </div>
@@ -57,7 +59,7 @@ const [search, setSearch] = useState("");
         {
             filteredBooks.map((bookdata,idx)=>(
                
-                <Bookcard bookdata={bookdata} key={idx} fetchData={fetchData}/>
+                <Bookcard bookdata={bookdata} key={idx} fetchData={fetchData} addmulti={addmulti}/>
                
             ))
         } </div>

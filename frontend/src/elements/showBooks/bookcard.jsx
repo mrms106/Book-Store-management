@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 
-export default function Bookcard({bookdata,idx,fetchData}){
+export default function Bookcard({bookdata,idx,fetchData,addmulti}){
   const[basket,setbasket]=useState(bookdata.inBasket)
 
 const navigate=useNavigate()
@@ -56,9 +56,11 @@ const addBasket=async()=>{
  </p>
     <p>
     <button className="btn btn-primary" onClick={deleteBook}>remove</button>&nbsp;
-    <button className="btn btn-primary" onClick={()=>navigate(`/sell/${bookdata._id}`)}>&nbsp;&nbsp;Sell&nbsp;&nbsp;</button>&nbsp;
     <button className="btn btn-primary" onClick={()=>navigate(`/update/${bookdata._id}`)}>Update</button>
-    <button className="btn btn-primary" onClick={addBasket}>{basket ? "remove from basket" : "add in basket"}</button>
+    {addmulti?
+    <button className="btn btn-primary" onClick={addBasket}>{basket ? "remove from basket" : "add in basket"}</button>:
+    <button className="btn btn-primary" onClick={()=>navigate(`/sell/${bookdata._id}`)}>&nbsp;&nbsp;Sell&nbsp;&nbsp;</button>
+}
     </p>
     
   </div>
