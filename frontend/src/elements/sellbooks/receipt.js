@@ -3,77 +3,107 @@ import { jsPDF } from "jspdf";
 export function generateReceipt(sell) {
     const doc = new jsPDF();
 
-    // Add University Book Store name with larger font size and bold style
-    doc.setFontSize(24);
+    // Add seller information at the top
+    doc.setFontSize(14);
     doc.setFont("helvetica", "bold");
-    doc.text("University Book Store", 105, 20, null, null, "center");
+    doc.text("University Book Shop", 20, 20);
+    doc.setFont("helvetica", "normal");
+    doc.text("Address: 123 Book Street, Knowledge City", 20, 30);
+    doc.text("Phone: (123) 456-7890", 20, 40);
 
-    // Add a subtitle with a slightly smaller font
-    doc.setFontSize(16);
-    doc.setFont("helvetica", "italic");
-    doc.text("Receipt of Sale", 105, 30, null, null, "center");
-
-    // Add a horizontal line below the title and subtitle
+    // Add a line separator
     doc.setLineWidth(0.5);
-    doc.line(20, 35, 190, 35);
+    doc.line(20, 45, 190, 45);
+
+    // Add receipt title
+    doc.setFontSize(16);
+    doc.setFont("helvetica", "bold");
+    doc.text("Receipt of Sale", 105, 60, null, null, "center");
+
+    // Add a horizontal line below the title
+    doc.setLineWidth(0.5);
+    doc.line(20, 65, 190, 65);
 
     // Set default font size and font style for the content
     doc.setFontSize(14);
     doc.setFont("helvetica", "normal");
 
-    // Add customer and book details with spacing
-    const startY = 50;
+    // Add buyer details
+    const startY = 80;
     const lineHeight = 10;
 
+    // Add buyer label
+    doc.setFont("helvetica", "bold");
+    doc.text("Buyer Information:", 20, startY);
+    
     // Add name
     doc.setFont("helvetica", "bold");
-    doc.text("Name:", 20, startY);
+    doc.text("Name:", 20, startY + lineHeight);
     doc.setFont("helvetica", "normal");
-    doc.text(`${sell.name}`, 60, startY);
+    doc.text(`${sell.name}`, 60, startY + lineHeight);
 
-    // Add book name
+    // Add phone
     doc.setFont("helvetica", "bold");
-    doc.text("Book Name:", 20, startY + lineHeight);
+    doc.text("Phone:", 20, startY + 2 * lineHeight);
     doc.setFont("helvetica", "normal");
-    doc.text(`${sell.bookname}`, 60, startY + lineHeight);
-
-    // Add price
-    doc.setFont("helvetica", "bold");
-    doc.text("Total Price:", 20, startY + 2 * lineHeight);
-    doc.setFont("helvetica", "normal");
-    doc.text(`${sell.price} RS`, 60, startY + 2 * lineHeight);
-
-    // Calculate and add price per book
-    const pricePerBook = (sell.price / sell.stock).toFixed(2);
-    doc.setFont("helvetica", "bold");
-    doc.text("Price per Book:", 20, startY + 3 * lineHeight);
-    doc.setFont("helvetica", "normal");
-    doc.text(`${pricePerBook} RS`, 60, startY + 3 * lineHeight);
+    doc.text(`${sell.phone}`, 60, startY + 2 * lineHeight);
 
     // Add date
     doc.setFont("helvetica", "bold");
-    doc.text("Date:", 20, startY + 4 * lineHeight);
+    doc.text("Date:", 20, startY + 3 * lineHeight);
     doc.setFont("helvetica", "normal");
-    doc.text(`${sell.date}`, 60, startY + 4 * lineHeight);
+    doc.text(`${sell.date}`, 60, startY + 3 * lineHeight);
 
-    // Add stock sold
-    doc.setFont("helvetica", "bold");
-    doc.text("Stock Sold:", 20, startY + 5 * lineHeight);
-    doc.setFont("helvetica", "normal");
-    doc.text(`${sell.stock}`, 60, startY + 5 * lineHeight);
+    // Add a horizontal line below the buyer details
+    doc.setLineWidth(0.5);
+    doc.line(20, startY + 4 * lineHeight, 190, startY + 4 * lineHeight);
 
-    // Add phone number
+    // Add book details
     doc.setFont("helvetica", "bold");
-    doc.text("Phone:", 20, startY + 6 * lineHeight);
+    doc.text("Books Purchased:", 20, startY + 5 * lineHeight);
+
+    let currentY = startY + 6 * lineHeight;
+    const bookLineHeight = 10;
+
+    let totalPrice = 0;
+    let totalStock = 0;
+
+    // Iterate through each book in the sellData
+    sell.bookdata.forEach((book, index) => {
+        doc.setFont("helvetica", "bold");
+        doc.text(`Book ${index + 1}:`, 20, currentY);
+        
+        doc.setFont("helvetica", "normal");
+        doc.text(`Name: ${book.bookname}`, 60, currentY);
+        doc.text(`Price: ${book.price} RS`, 60, currentY + bookLineHeight);
+        doc.text(`Stock: ${book.stock}`, 60, currentY + 2 * bookLineHeight);
+
+        // Update totals
+        totalPrice += book.price * book.stock;
+        totalStock += book.stock;
+
+        // Move to the next line for the next book
+        currentY += 3 * bookLineHeight;
+    });
+
+    // Add total price
+    doc.setFont("helvetica", "bold");
+    doc.text("Total Price:", 20, currentY);
     doc.setFont("helvetica", "normal");
-    doc.text(`${sell.phone}`, 60, startY + 6 * lineHeight);
+    doc.text(`${totalPrice} RS`, 60, currentY);
+
+    // Add total stock
+    doc.setFont("helvetica", "bold");
+    doc.text("Total Stock:", 20, currentY + lineHeight);
+    doc.setFont("helvetica", "normal");
+    doc.text(`${totalStock}`, 60, currentY + lineHeight);
 
     // Add a footer with a line and thank you note
     doc.setLineWidth(0.2);
-    doc.line(20, 280, 190, 280);
+    doc.line(20, currentY + 2 * lineHeight, 190, currentY + 2 * lineHeight);
     doc.setFontSize(12);
     doc.setFont("helvetica", "italic");
-    doc.text("Thank you for your purchase from University Book Store!", 105, 290, null, null, "center");
+    doc.text("Thank you for your purchase from University Book Store!", 105, currentY + 3 * lineHeight, null, null, "center");
 
     // Save the PDF with a filename
     doc.save(`receipt_${sell.name}.pdf`);
