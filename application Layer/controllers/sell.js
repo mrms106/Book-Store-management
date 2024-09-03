@@ -58,7 +58,7 @@ module.exports.sellsmulti = async (req, res) => {
                     throw new Error(`Insufficient stock for book ID ${bookId}`);
                 }
 
-                await books.findByIdAndUpdate(bookId, { stock: bookStock }, { new: true });
+                await books.findByIdAndUpdate(bookId, { stock: bookStock,inBasket:false }, { new: true });
 
                 const sellRecord = {
                     name: sellData.name,

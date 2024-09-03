@@ -82,7 +82,7 @@ module.exports.update=async(req,res)=>{
 module.exports.addBasket=async(req,res)=>{
   const booklId=req.params.id;
   const { inBasket } = req.body; 
-  console.log(inBasket)
+//   console.log(inBasket)
   try{
     const book=await books.findByIdAndUpdate(booklId,{inBasket:inBasket},{ new: true } )
     res.status(200).json({

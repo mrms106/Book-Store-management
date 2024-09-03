@@ -1,8 +1,10 @@
 import TextField from '@mui/material/TextField';
 import { useState, useEffect } from 'react';
 import '../addBooks/adbook.css';
+import {  useNavigate } from 'react-router-dom';
 
 export default function BasketBuy({ basketData }) {
+    const navigate=useNavigate()
     const [form, setForm] = useState({
         name: '',
         phone: '',
@@ -56,6 +58,8 @@ export default function BasketBuy({ basketData }) {
 
             if (response.ok) {
                 alert("Receipt generated successfully!");
+                navigate("/receipts")
+                
             } else {
                 alert("Problem in generating the receipt");
             }
