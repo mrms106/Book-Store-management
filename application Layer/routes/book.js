@@ -14,6 +14,6 @@ route.post("/add/:id",BookController.addBasket)
 route.post("/sell/:id",sellController.sells)
 route.post("/sell",sellController.sellsmulti)
 route.get("/sell",sellController.showsells)
-
+route.delete("/receipt/:id",sellController.deleteReceipt)
 
 module.exports=route;

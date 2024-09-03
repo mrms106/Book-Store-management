@@ -30,7 +30,7 @@ export default function Sells(){
         <>
         <div className="main-sell-show">
             {selldata.map((sell,idx)=>(
-               <ShowSellcard sell={sell} />
+               <ShowSellcard sell={sell} sellData={sellData}/>
                 
             ))}
         

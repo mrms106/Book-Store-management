@@ -99,3 +99,17 @@ module.exports.showsells=async(req,res)=>{
         })
     }
 }
+module.exports.deleteReceipt=async(req,res)=>{
+    const ID=req.params.id
+    try{
+        await sell.findByIdAndDelete(ID)
+        res.status(200).json({
+            message:"receipt deleted successfully"
+        })
+    }catch(err){
+        console.log(err)
+        res.status(500).json({
+            message:"problem in delete the receipt"
+        })
+    }
+}
