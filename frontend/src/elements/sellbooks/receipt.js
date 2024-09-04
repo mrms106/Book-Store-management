@@ -105,6 +105,38 @@ export function generateReceipt(sell) {
     doc.setFont("helvetica", "italic");
     doc.text("Thank you for your purchase from University Book Store!", 105, currentY + 3 * lineHeight, null, null, "center");
 
-    // Save the PDF with a filename
-    doc.save(`receipt_${sell.name}.pdf`);
+      // Generate the PDF as a Blob
+    const pdfBlob = doc.output("blob");
+
+    // Create a URL for the Blob
+    const pdfUrl = URL.createObjectURL(pdfBlob);
+
+    // Create an iframe to load the PDF
+    const iframe = document.createElement("iframe");
+    iframe.style.position = "absolute";
+    iframe.style.width = "0";
+    iframe.style.height = "0";
+    iframe.style.border = "none";
+    iframe.src = pdfUrl;
+
+    // Append the iframe to the body
+    document.body.appendChild(iframe);
+
+    // Try to open the print dialog
+    try {
+        iframe.onload = function() {
+            iframe.contentWindow.focus();
+            iframe.contentWindow.print();
+        };
+    } catch (error) {
+        // Print failed, fallback to download
+        console.log(error,"pdf")
+        document.body.removeChild(iframe);
+        const downloadLink = document.createElement("a");
+        downloadLink.href = pdfUrl;
+        downloadLink.download = `receipt_${sell.name}.pdf`;
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        document.body.removeChild(downloadLink);
+    }
 }
