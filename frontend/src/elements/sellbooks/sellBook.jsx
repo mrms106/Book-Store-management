@@ -88,7 +88,6 @@ export default function SellBook(){
         type='number' className='input'
          defaultValue={0} />
         </span>
-        <TextField id="outlined-basic" label="description" variant="outlined" name='date' type='date' className='input' focused/>
         <TextField id="outlined-basic" label="Book-Name" variant="outlined" name='bookname' type='text' className='input' value={form.bookname}  focused/>
         <button>Get receipt</button>
         </form>

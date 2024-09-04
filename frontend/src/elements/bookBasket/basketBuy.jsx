@@ -131,16 +131,6 @@ export default function BasketBuy({ basketData }) {
                            
                         </div>
                     ))}
-                    <TextField 
-                        id="purchase-date" 
-                        label="Purchase Date" 
-                        variant="outlined" 
-                        name='date' 
-                        type='date' 
-                        className='input' 
-                        onChange={onInputChange}
-                        focused
-                    />
        
                     <button type="submit">Get receipt</button>
                 </form>

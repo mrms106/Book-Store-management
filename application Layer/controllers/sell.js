@@ -22,7 +22,7 @@ module.exports.sells=async(req,res)=>{
          const sellcreate={
             name:sellData.name,
             phone:sellData.phone,
-            date:sellData.date,
+            date:new Date(),
             bookdata:{
                 price: sellData.price,
                 stock: sellData.stock,
@@ -72,7 +72,7 @@ module.exports.sellsmulti = async (req, res) => {
             const sellRecord = {
                 name: sellData.name,
                 phone: sellData.phone,
-                date: sellData.date,
+                date: new Date(),
                 bookdata: bookDataArray
             };
         
@@ -87,7 +87,7 @@ module.exports.sellsmulti = async (req, res) => {
 }
 module.exports.showsells=async(req,res)=>{
     try{
-     const sells=await sell.find({})
+    const sells = await sell.find({}).sort({ date: -1 });
      res.status(200).json({
         message:"sells fetched success",
         sells:sells
