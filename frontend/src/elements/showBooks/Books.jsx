@@ -37,7 +37,7 @@ console.log(addmulti)
     const BasketFilter=book.filter((basketBook)=>
         basketBook.inBasket===true        
     )
-console.log(BasketFilter)
+// console.log(BasketFilter)
     return(
         <>
         <div className="Main-Book">
