@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react"
 import { jsPDF } from "jspdf";
+import TextField from '@mui/material/TextField';
 import ShowSellcard from "./showsellcard";
 export default function Sells(){
 
     let[selldata,setselldata]=useState([])
+    let[search,setSearch]=useState("")
 
   const sellData=async()=>{
     try{
@@ -23,13 +25,19 @@ export default function Sells(){
   useEffect(()=>{
     sellData()
   },[])
-
+ 
+  const filtersells=selldata.filter((datasell)=>
+      datasell.name.toLowerCase().includes(search.toLowerCase()) ||
+      datasell.date.toLowerCase().includes(search.toLowerCase())
+  )
  
   console.log(selldata.date)
     return(
         <>
-        <div className="main-sell-show">
-            {selldata.map((sell,idx)=>(
+     <TextField style={{marginLeft:"20px"}} id="outlined-basic" label="Search-receipt" variant="outlined"  onChange={(e) => setSearch(e.target.value)} />
+      <div className="main-sell-show">
+            
+            {filtersells.map((sell,idx)=>(
                <ShowSellcard sell={sell} sellData={sellData}/>
                 
             ))}
