@@ -4,6 +4,7 @@ import './Book.css'
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import SearchIcon from '@mui/icons-material/Search';
+import FloatingActionButtons from "./folotingBtn";
 
 export default function GetBooks(){
 let [book,setbook]=useState([])
@@ -25,7 +26,7 @@ console.log(addmulti)
             console.log(err)
         }
     }
-    console.log(book)
+    // console.log(book)
     useEffect(()=>{
         fetchData()
     },[])
@@ -33,6 +34,10 @@ console.log(addmulti)
         bookdata.title.toLowerCase().includes(search.toLowerCase()) ||
         bookdata.author.toLowerCase().includes(search.toLowerCase())
     );
+    const BasketFilter=book.filter((basketBook)=>
+        basketBook.inBasket===true        
+    )
+console.log(BasketFilter)
     return(
         <>
         <div className="Main-Book">
@@ -63,6 +68,10 @@ console.log(addmulti)
                
             ))
         } </div>
+        { BasketFilter.length>0 ?
+            <FloatingActionButtons/>: null
+        }
+        
        </div>
         </>
     )
