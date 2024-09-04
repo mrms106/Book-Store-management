@@ -2,7 +2,7 @@ import TextField from '@mui/material/TextField';
 import { useState,useEffect } from 'react';
 import SellCard from './sellcard';
 import {  useNavigate,useParams } from 'react-router-dom';
-
+import { generateReceipt } from './receipt';
 
 export default function SellBook(){
    
@@ -60,7 +60,18 @@ export default function SellBook(){
 
             })
             if(responce.ok){
-                alert("the receipt is generated")
+                const  sell=({
+                    name:form.name,
+                    phone:form.phone,
+                    date:new Date(),
+                    bookdata:[{
+                        price:form.price,
+                        stock: form.stock,
+                        bookname:form. bookname,
+                 }]
+                })
+                await generateReceipt(sell)
+                // alert("the receipt is generated")
                 navigate("/receipts")
             }else{
                 alert("problem in generating the receipt")
@@ -70,7 +81,6 @@ export default function SellBook(){
             alert("somethin went wrong")
          }
     }
-    console.log(form)
     return(
         <>
         <div className="sellbook">
@@ -89,7 +99,7 @@ export default function SellBook(){
          defaultValue={0} />
         </span>
         <TextField id="outlined-basic" label="Book-Name" variant="outlined" name='bookname' type='text' className='input' value={form.bookname}  focused/>
-        <button>Get receipt</button>
+        <button >Get receipt</button>
         </form>
         </div>
         <SellCard form={data}/>

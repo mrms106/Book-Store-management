@@ -21,7 +21,7 @@ export default function ShowSellcard({sell,sellData}){
         <h5 className="card-title">Buyer-Name: {sell.name}</h5>
         <p className="card-text">Buy-Date:{sell.date}</p>
         
-        <button href="#" className="btn btn-primary"  onClick={() => generateReceipt(sell)}>Download receipt</button>
+        <button href="#" className="btn btn-primary"  onClick={() => generateReceipt(sell)}>Print receipt</button>
         <button className="btn btn-secondary" onClick={deleteReceipt}>Delete receipt </button>
         
       </div>

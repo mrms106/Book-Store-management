@@ -2,6 +2,7 @@ import TextField from '@mui/material/TextField';
 import { useState, useEffect } from 'react';
 import '../addBooks/adbook.css';
 import {  useNavigate } from 'react-router-dom';
+import { generateReceipt } from '../sellbooks/receipt';
 
 export default function BasketBuy({ basketData }) {
     const navigate=useNavigate()
@@ -57,7 +58,16 @@ export default function BasketBuy({ basketData }) {
             });
 
             if (response.ok) {
-                alert("Receipt generated successfully!");
+                // alert("Receipt generated successfully!");
+                // console.log(form)
+                const  sell=({
+                    name:form.name,
+                    phone:form.phone,
+                    date:new Date(),
+                    bookdata:form.books
+                })
+                generateReceipt(sell)
+                // console.log(sell)
                 navigate("/receipts")
                 
             } else {

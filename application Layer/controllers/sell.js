@@ -31,7 +31,9 @@ module.exports.sells=async(req,res)=>{
          }
         await sell.create(sellcreate)
 
-        res.status(200).json({ message: "The sale is successful" });
+        res.status(200).json({ message: "The sale is successful",
+            sellresponce:sellcreate
+         });
     }catch(err){
         console.log(err);
         res.status(500).json({ message: "The sale encountered an error", error: err.message });

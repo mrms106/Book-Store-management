@@ -74,7 +74,7 @@ export function generateReceipt(sell) {
         doc.text(`Book ${index + 1}:`, 20, currentY);
         
         doc.setFont("helvetica", "normal");
-        doc.text(`Name: ${book.bookname}`, 60, currentY);
+        doc.text(`Name: ${book.bookname || book.title}`, 60, currentY);
         doc.text(`Price: ${book.price} RS`, 60, currentY + bookLineHeight);
         doc.text(`Stock: ${book.stock}`, 60, currentY + 2 * bookLineHeight);
 
