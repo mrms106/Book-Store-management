@@ -17,7 +17,8 @@ const bookSchema = new mongoose.Schema({
      location:{
       type:String,
       require:true
-     }
+     },
+     category:String
 });
 
 module.exports=mongoose.model("book",bookSchema)

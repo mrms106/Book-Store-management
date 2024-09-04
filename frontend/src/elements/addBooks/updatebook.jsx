@@ -80,6 +80,9 @@ const navigate=useNavigate()
         <TextField id="outlined-basic" label="location" variant="outlined" name='location' type='text' className='input'
         value={form.location}
         onChange={onINputChange} focused/>
+         <TextField id="outlined-basic" label="category" variant="outlined" name='category' type='text' className='input'
+        value={form.category}
+        onChange={onINputChange} focused/>
         <TextField id="outlined-basic" label="description" variant="outlined" name='description' className='input'
         value={form.description}
         onChange={onINputChange} focused/>
