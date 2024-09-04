@@ -77,6 +77,9 @@ const navigate=useNavigate()
         value={form.stock}
         onChange={onINputChange} focused/>
         </span>
+        <TextField id="outlined-basic" label="location" variant="outlined" name='location' type='text' className='input'
+        value={form.location}
+        onChange={onINputChange} focused/>
         <TextField id="outlined-basic" label="description" variant="outlined" name='description' className='input'
         value={form.description}
         onChange={onINputChange} focused/>

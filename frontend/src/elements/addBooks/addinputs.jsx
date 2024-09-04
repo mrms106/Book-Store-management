@@ -13,6 +13,7 @@ export default function AddInput(){
         <TextField id="outlined-basic" label="stock" variant="outlined" name='stock' type='number' className='input'/>
         </span>
         <TextField id="outlined-basic" label="description" variant="outlined" name='description' className='input'/>
+        <TextField id="outlined-basic" label="location" variant="outlined" name='location' className='input'/>
         <TextField id="outlined-basic" label="Add image link" variant="outlined" name='image' type='link' className='input'/>
         <button>Add</button>
         </>

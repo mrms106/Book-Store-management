@@ -52,7 +52,8 @@ const addBasket=async()=>{
     <p className="card-text">About : {bookdata.description}</p>
  <p>
  <span className="card-text">Stock: {bookdata.stock}</span> &nbsp; &nbsp;
- <span className="card-text">price: ₹{bookdata.price}</span>
+ <span className="card-text">price: ₹{bookdata.price}</span><br></br>
+ <span className="card-text">location: {bookdata.location}</span>
  </p>
     <p>
     <button className="btn btn-primary" onClick={deleteBook}>remove</button>&nbsp;

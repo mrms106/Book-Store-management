@@ -13,6 +13,10 @@ const bookSchema = new mongoose.Schema({
      inBasket:{
         type:Boolean,
         default:false
+     },
+     location:{
+      type:String,
+      require:true
      }
 });
 

@@ -32,7 +32,8 @@ console.log(addmulti)
     },[])
     const filteredBooks = book.filter((bookdata) =>
         bookdata.title.toLowerCase().includes(search.toLowerCase()) ||
-        bookdata.author.toLowerCase().includes(search.toLowerCase())
+        bookdata.author.toLowerCase().includes(search.toLowerCase()) ||
+        bookdata.location.toLowerCase().includes(search.toLowerCase())
     );
     const BasketFilter=book.filter((basketBook)=>
         basketBook.inBasket===true        
