@@ -88,17 +88,17 @@ export default function SellBook(){
         <h3>Sell Book</h3>
         <form onSubmit={onFormSubmit} onChange={onInputChange}>
         <span>
-        <TextField id="outlined-basic" label="Buyer name" variant="outlined" name='name' className='input' />
-        <TextField id="outlined-basic" label="Buyer phone" variant="outlined" name='phone' type='number' className='input'/>
+        <TextField id="outlined-basic" label="Buyer name" variant="outlined" name='name' className='input' required/>
+        <TextField id="outlined-basic" label="Buyer phone" variant="outlined" name='phone' type='number' className='input' required/>
         </span>
         <span>
         <TextField id="outlined-basic" label="price" variant="outlined" name='price' type='number' className='input' defaultValue={0}  value={form.price } disabled focused/>
         <TextField id="outlined-basic" label="stock" 
         variant="outlined" name='stock' 
         type='number' className='input'
-         defaultValue={0} />
+         defaultValue={0} required/>
         </span>
-        <TextField id="outlined-basic" label="Book-Name" variant="outlined" name='bookname' type='text' className='input' value={form.bookname}  focused/>
+        <TextField id="outlined-basic" label="Book-Name" variant="outlined" name='bookname' type='text' className='input' value={form.bookname} required focused/>
         <button >Get receipt</button>
         </form>
         </div>

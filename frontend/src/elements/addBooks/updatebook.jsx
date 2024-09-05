@@ -62,35 +62,37 @@ const navigate=useNavigate()
         <span>
         <TextField id="outlined-required" label="title"  name='title' className='input'
           value={form.title}
-          onChange={onINputChange}  focused/>
+          onChange={onINputChange} required  focused/>
           
           
         <TextField id="outlined-basic" label="author" variant="outlined" name='author' className='input'
         value={form.author}
-        onChange={onINputChange} focused/>
+        onChange={onINputChange} required focused/>
         </span>
         <span>
         <TextField id="outlined-basic" label="price" variant="outlined" name='price' type='number' className='input'
         value={form.price}
-        onChange={onINputChange}  focused/>
+        onChange={onINputChange} required focused/>
         <TextField id="outlined-basic" label="stock" variant="outlined" name='stock' type='number' className='input'
         value={form.stock}
-        onChange={onINputChange} focused/>
+        onChange={onINputChange} required focused/>
         </span>
+        <span>
         <TextField id="outlined-basic" label="location" variant="outlined" name='location' type='text' className='input'
         value={form.location}
-        onChange={onINputChange} focused/>
+        onChange={onINputChange} required focused/>
          <TextField id="outlined-basic" label="category" variant="outlined" name='category' type='text' className='input'
         value={form.category}
-        onChange={onINputChange} focused/>
+        onChange={onINputChange} required focused/>
+        </span>
         <TextField id="outlined-basic" label="description" variant="outlined" name='description' className='input'
         value={form.description}
-        onChange={onINputChange} focused/>
+        onChange={onINputChange} required focused/>
          <img src={form.image} alt={form.title}></img>
         <TextField id="outlined-basic" label="Add image link" variant="outlined" name='image' type='link' className='input'
         value={form.image}
-        onChange={onINputChange} focused/>
-        <button>Add</button>
+        onChange={onINputChange} required focused/>
+        <button>Update Book</button>
        
         </form>
         </div>

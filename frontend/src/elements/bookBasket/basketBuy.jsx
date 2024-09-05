@@ -91,6 +91,7 @@ export default function BasketBuy({ basketData }) {
                             name='name' 
                             className='input' 
                             onChange={onInputChange}
+                            required
                         />
                         <TextField 
                             id="buyer-phone" 
@@ -100,6 +101,7 @@ export default function BasketBuy({ basketData }) {
                             type='number' 
                             className='input' 
                             onChange={onInputChange}
+                            required
                         />
                     </span>
        
@@ -136,6 +138,7 @@ export default function BasketBuy({ basketData }) {
                                     type='number' 
                                     className='input' 
                                     onChange={(event) => onInputChange(event, idx)}
+                                    required
                                 />
                             </span>
                            
