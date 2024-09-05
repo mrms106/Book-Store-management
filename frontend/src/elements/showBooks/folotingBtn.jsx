@@ -16,7 +16,7 @@ export default function FloatingActionButtons() {
       }} onClick={()=>navigate("/buybasket")} >
       <Fab variant="extended">
         <NavigationIcon sx={{ mr: 1 }}  />
-        Sell-basket
+        Go-to-basket
       </Fab>
 
     </Box>

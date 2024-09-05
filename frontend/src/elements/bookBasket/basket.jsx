@@ -26,6 +26,13 @@ export default function Basket(){
     const basketData = books.filter((book) => {
         return book.inBasket === true;
     });
+    if(basketData.length<=0){
+        return(
+            <h3 style={{textAlign:"center"}}>
+                Add the books In basket to sell
+            </h3>
+        )
+    }
     return(
         <>
         <div className="basket-card-main">

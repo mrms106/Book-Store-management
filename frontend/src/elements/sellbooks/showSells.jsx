@@ -31,7 +31,14 @@ export default function Sells(){
       datasell.date.toLowerCase().includes(search.toLowerCase())
   )
  
-  console.log(selldata.date)
+//   console.log(selldata.date)
+if(filtersells.length<=0){
+    return(
+        <h3 style={{textAlign:"center"}}>
+            there Is no receipt is Available
+        </h3>
+    )
+}
     return(
         <>
      <TextField style={{marginLeft:"20px"}} id="outlined-basic" label="Search-receipt" variant="outlined"  onChange={(e) => setSearch(e.target.value)} />

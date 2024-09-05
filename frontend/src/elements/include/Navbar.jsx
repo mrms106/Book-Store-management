@@ -32,8 +32,8 @@ const logout=async()=>{
       <div className="navbar-nav">
         <span className="nav-link active" aria-current="page" onClick={()=>navigate("/")}>Home</span>
         <span className="nav-link active"onClick={()=>navigate("/addbook")} >Add Books</span>
-        <span className="nav-link active"onClick={()=>navigate("/receipts")} >Show sells</span>
-        <span className="nav-link active"onClick={()=>navigate("/buybasket")} >Buy-Basket</span>
+        <span className="nav-link active"onClick={()=>navigate("/receipts")} >Show-Reciepts</span>
+        <span className="nav-link active"onClick={()=>navigate("/buybasket")} >Sell-Basket</span>
         {isloggedIn ? <span className="nav-link active" onClick={logout}>Log-Out</span>
         :<span className="nav-link active" onClick={()=>navigate("/login")}>Log-In</span>
         }

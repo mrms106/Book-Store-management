@@ -40,6 +40,14 @@ console.log(addmulti)
         basketBook.inBasket===true        
     )
 // console.log(BasketFilter)
+if(filteredBooks.length<=0){
+    return(
+        <h3 style={{textAlign:"center"}}>
+            The books is Not Available Please Add the Books..!<br></br>
+            oR Wait for the Load the books if Available
+        </h3>
+    )
+}
     return(
         <>
         <div className="Main-Book">
