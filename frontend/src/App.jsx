@@ -11,6 +11,9 @@ import SellBook from './elements/sellbooks/sellBook';
 import Sells from './elements/sellbooks/showSells';
 import Footer from './elements/include/footer';
 import Basket from './elements/bookBasket/basket';
+import Help from './elements/footerelements/help';
+import Privacy from './elements/footerelements/privacy';
+import Terms from './elements/footerelements/terms';
 const App = () => {
 let[curruser,setcurruser]=useState(null)
 let[isloggedIn,setisloggedIn]=useState(null)
@@ -55,6 +58,9 @@ if(isloggedIn===null){
                     <Route path="/sell/:id" element={<SellBook />} />
                     <Route path="/receipts" element={<Sells />} />
                     <Route path="/buybasket" element={<Basket />} />
+                    <Route path="/help" element={<Help />} />
+                    <Route path="/privacy" element={<Privacy />} />
+                    <Route path="/terms" element={<Terms />} />
                     
                 </Route>
                 

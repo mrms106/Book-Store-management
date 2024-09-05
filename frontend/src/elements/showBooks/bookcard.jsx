@@ -57,11 +57,12 @@ const addBasket=async()=>{
  <span className="card-text">category: {bookdata.category}</span>
  </p>
     <p>
-    <button className="btn btn-primary" onClick={deleteBook}>remove</button>&nbsp;
-    <button className="btn btn-primary" onClick={()=>navigate(`/update/${bookdata._id}`)}>Update</button>
+   
     {addmulti?
-    <button className="btn btn-primary" onClick={addBasket}>{basket ? "remove from basket" : "add in basket"}</button>:
-    <button className="btn btn-primary" onClick={()=>navigate(`/sell/${bookdata._id}`)}>&nbsp;&nbsp;Sell&nbsp;&nbsp;</button>
+    <button className="btn btn-primary" onClick={addBasket}>{basket ? "remove from basket" : "add in basket"}</button>:<>
+    <button className="btn btn-secondary" onClick={deleteBook}>remove</button>&nbsp;
+    <button className="btn btn-success" onClick={()=>navigate(`/update/${bookdata._id}`)}>Update</button>
+    <button className="btn btn-primary" onClick={()=>navigate(`/sell/${bookdata._id}`)}>&nbsp;&nbsp;Sell&nbsp;&nbsp;</button></>
 }
     </p>
     
