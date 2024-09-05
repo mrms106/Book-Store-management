@@ -5,12 +5,12 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import SearchIcon from '@mui/icons-material/Search';
 import FloatingActionButtons from "./folotingBtn";
-
+import Switch from '@mui/material/Switch';
 export default function GetBooks(){
 let [book,setbook]=useState([])
 const [search, setSearch] = useState("");
 const [addmulti,setaddmulti]=useState(false)
-console.log(addmulti)
+// console.log(addmulti)
     const fetchData=async()=>{
         try{
         const responce=await fetch("http://localhost:8080/api/books/book",{
@@ -62,9 +62,9 @@ if(filteredBooks.length<=0){
                 </Button>
             </div>
             <div>
-                <div className="form-check form-switch switch" >
+                <div className="switch" >
+                <Switch onClick={()=>setaddmulti(!addmulti)}/>
                     Sell multiple Books
-                    <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onClick={()=>setaddmulti(!addmulti)}/>
                 </div>
           </div>
         </div>

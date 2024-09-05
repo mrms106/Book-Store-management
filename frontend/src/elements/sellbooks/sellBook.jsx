@@ -3,6 +3,8 @@ import { useState,useEffect } from 'react';
 import SellCard from './sellcard';
 import {  useNavigate,useParams } from 'react-router-dom';
 import { generateReceipt } from './receipt';
+import PrintIcon from '@mui/icons-material/Print';
+
 
 export default function SellBook(){
    
@@ -99,7 +101,7 @@ export default function SellBook(){
          defaultValue={0} required/>
         </span>
         <TextField id="outlined-basic" label="Book-Name" variant="outlined" name='bookname' type='text' className='input' value={form.bookname} required focused/>
-        <button >Get receipt</button>
+        <button >Get receipt <PrintIcon/></button>
         </form>
         </div>
         <SellCard form={data}/>

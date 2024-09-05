@@ -1,5 +1,5 @@
 import TextField from '@mui/material/TextField';
-
+import AddIcon from '@mui/icons-material/Add';
 
 export default function AddInput(){
     return(
@@ -18,7 +18,7 @@ export default function AddInput(){
         <TextField id="outlined-basic" label="category" variant="outlined" name='category' className='input' required/>
         </span>
         <TextField id="outlined-basic" label="Add image link" variant="outlined" name='image' type='link' className='input'/>
-        <button>Add</button>
+        <button>Add <AddIcon/></button>
         </>
     )
 }

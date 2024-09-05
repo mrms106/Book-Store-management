@@ -45,7 +45,7 @@ if(filtersells.length<=0){
       <div className="main-sell-show">
             
             {filtersells.map((sell,idx)=>(
-               <ShowSellcard sell={sell} sellData={sellData}/>
+               <ShowSellcard sell={sell} key={idx} sellData={sellData}/>
                 
             ))}
         

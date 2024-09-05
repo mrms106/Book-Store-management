@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import '../addBooks/adbook.css';
 import {  useNavigate } from 'react-router-dom';
 import { generateReceipt } from '../sellbooks/receipt';
+import PrintIcon from '@mui/icons-material/Print';
 
 export default function BasketBuy({ basketData }) {
     const navigate=useNavigate()
@@ -145,7 +146,7 @@ export default function BasketBuy({ basketData }) {
                         </div>
                     ))}
        
-                    <button type="submit">Get receipt</button>
+                    <button type="submit">Get receipt <PrintIcon/></button>
                 </form>
             </div>
         </>

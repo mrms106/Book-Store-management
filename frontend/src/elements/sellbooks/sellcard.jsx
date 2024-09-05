@@ -38,7 +38,7 @@ export default function SellCard({form,fetchData}){
             <div className="sell-card-footer">
             <span className="sell-text-title">₹{form.price}</span>
             <span className="sell-text-title stock">stock: {form.stock}</span>
-            <button onClick={addBasket}>remove</button>
+            <button onClick={addBasket} className="btn btn-secondary">remove</button>
             </div></div>
         </div>
         </>

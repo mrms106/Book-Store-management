@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 export default function Bookcard({bookdata,idx,fetchData,addmulti}){
   const[basket,setbasket]=useState(bookdata.inBasket)
@@ -59,10 +60,10 @@ const addBasket=async()=>{
     <p>
    
     {addmulti?
-    <button className="btn btn-primary" onClick={addBasket}>{basket ? "remove from basket" : "add in basket"}</button>:<>
-    <button className="btn btn-secondary" onClick={deleteBook}>remove</button>&nbsp;
+    <button className="btn btn-primary" onClick={addBasket}>{basket ? "remove from basket" : <>add in basket  <AddShoppingCartIcon /></>}</button>:<>
+    <button className="btn btn-secondary" onClick={deleteBook}>remove  <DeleteIcon fontSize="small" /></button>
     <button className="btn btn-success" onClick={()=>navigate(`/update/${bookdata._id}`)}>Update</button>
-    <button className="btn btn-primary" onClick={()=>navigate(`/sell/${bookdata._id}`)}>&nbsp;&nbsp;Sell&nbsp;&nbsp;</button></>
+    <button  className="btn btn-primary" onClick={()=>navigate(`/sell/${bookdata._id}`)}>Sell<AddShoppingCartIcon/></button></>
 }
     </p>
     
