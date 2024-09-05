@@ -10,7 +10,8 @@ const logout=async()=>{
   })
   if(responce.ok){
     alert("logout success")
-    navigate("/login")
+    // navigate("/login")
+    window.location.href="/login"
   }else{
     alert("sommething went wrong try again")
   }

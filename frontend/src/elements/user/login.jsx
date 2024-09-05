@@ -23,7 +23,8 @@ export default function Login(){
             })
             if(responce.ok){
                 alert("User log In successfull")
-              navigate("/")
+            //   navigate("/")
+            window.location.href="/"
             }else(
                 alert("problem in login")
             )
