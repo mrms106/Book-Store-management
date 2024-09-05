@@ -123,8 +123,9 @@ export function generateReceipt(sell) {
         doc.text(`Stock: ${book.stock}`, 60, currentY + 2 * lineHeight);
     
         // Update totals
-        totalPrice += book.price * book.stock;
-        totalStock += book.stock;
+      const  stock=parseInt(book.stock)
+        totalPrice += book.price * stock;
+        totalStock += stock;
     
         // Move to the next line for the next book
         currentY += 2.7 * lineHeight;
