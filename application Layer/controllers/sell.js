@@ -89,7 +89,8 @@ module.exports.sellsmulti = async (req, res) => {
 }
 module.exports.showsells=async(req,res)=>{
     try{
-    const sells = await sell.find({}).sort({ date: -1 });
+    const sells = await sell.find({}).sort({ _id: -1 });
+    console.log()
      res.status(200).json({
         message:"sells fetched success",
         sells:sells
