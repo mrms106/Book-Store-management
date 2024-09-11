@@ -32,7 +32,7 @@ export default function Sells(){
   )
  
 //   console.log(selldata.date)
-if(filtersells.length<=0){
+if(selldata.length<=0){
     return(
         <h3 style={{textAlign:"center"}}>
             there Is no receipt is Available
@@ -44,10 +44,13 @@ if(filtersells.length<=0){
      <TextField style={{marginLeft:"20px"}} id="outlined-basic" label="Search-receipt" variant="outlined"  onChange={(e) => setSearch(e.target.value)} />
       <div className="main-sell-show">
             
-            {filtersells.map((sell,idx)=>(
+            {filtersells.length>0 ?
+            filtersells.map((sell,idx)=>(
                <ShowSellcard sell={sell} key={idx} sellData={sellData}/>
                 
-            ))}
+            )):
+            <p>no receipt is Available related to your search</p>
+        }
         
         </div>
         </>
