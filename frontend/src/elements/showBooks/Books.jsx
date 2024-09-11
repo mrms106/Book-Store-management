@@ -40,7 +40,7 @@ const [addmulti,setaddmulti]=useState(false)
         basketBook.inBasket===true        
     )
 // console.log(BasketFilter)
-if(filteredBooks.length<=0){
+if(book.length<=0){
     return(
         <h3 style={{textAlign:"center"}}>
             The books is Not Available Please Add the Books..!<br></br>
@@ -71,12 +71,13 @@ if(filteredBooks.length<=0){
         
         <div className="bookcard">
        
-        {
+        { filteredBooks.length>0 ?
             filteredBooks.map((bookdata,idx)=>(
                
                 <Bookcard bookdata={bookdata} key={idx} fetchData={fetchData} addmulti={addmulti}/>
+             
                
-            ))
+            )):<p>no book is availble related to your search</p>
         } </div>
         { BasketFilter.length>0 ?
             <FloatingActionButtons/>: null
