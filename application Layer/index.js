@@ -58,9 +58,14 @@ async function main() {
 app.get("/",(req,res)=>{
   res.send("working ")
 })
+app.use(express.static(path.join(__dirname,"build")))
 
 app.use("/api/books",bookRoute)
 app.use("/api/auth",UserRoute)
+
+app.get("*",(req,res)=>{
+  res.sendFile(path.join(__dirname,"build",'index.html'))
+})
 
 app.listen("8080",()=>{
   console.log("port is running on 8080")
