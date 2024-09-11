@@ -5,15 +5,15 @@ const sellController=require("../controllers/sell")
 const isLoggedIn=require("../middleware/isloggedin")
 
 route.get("/book",isLoggedIn,BookController.getBook );
-route.post("/bookadd", BookController.addBook);
-route.delete("/delete/:id",BookController.delete)
-route.post("/update/:id",BookController.update)
-route.get("/update/:id",BookController.getupdate)
-route.post("/add/:id",BookController.addBasket)
+route.post("/bookadd",isLoggedIn, BookController.addBook);
+route.delete("/delete/:id",isLoggedIn,BookController.delete)
+route.post("/update/:id",isLoggedIn,BookController.update)
+route.get("/update/:id",isLoggedIn,BookController.getupdate)
+route.post("/add/:id",isLoggedIn,BookController.addBasket)
 
-route.post("/sell/:id",sellController.sells)
-route.post("/sell",sellController.sellsmulti)
-route.get("/sell",sellController.showsells)
-route.delete("/receipt/:id",sellController.deleteReceipt)
+route.post("/sell/:id",isLoggedIn,sellController.sells)
+route.post("/sell",isLoggedIn,sellController.sellsmulti)
+route.get("/sell",isLoggedIn,sellController.showsells)
+route.delete("/receipt/:id",isLoggedIn,sellController.deleteReceipt)
 
 module.exports=route;
