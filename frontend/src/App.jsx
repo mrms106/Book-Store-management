@@ -20,7 +20,7 @@ let[isloggedIn,setisloggedIn]=useState(null)
     const fetchuser=async()=>{
         try{
         const responce=await fetch("http://localhost:8080/api/auth/user",{
-            
+              credentials:"include"
         })
         if(!responce.ok){
             console.log("Something went wrong");
