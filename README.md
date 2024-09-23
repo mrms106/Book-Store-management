@@ -1,6 +1,6 @@
 # 📚 Book Store Management System
 
-(![Screenshot (243)](https://github.com/user-attachments/assets/44c7f1fc-49ec-422b-b178-c3d4d002a59c)
+![Screenshot (243)](https://github.com/user-attachments/assets/44c7f1fc-49ec-422b-b178-c3d4d002a59c
 rimageurl.com/banner.jpg)
 
 Welcome to the **Book Store Management System**! This powerful and user-friendly platform, built with **React**, **Node.js**, **Express**, and **MongoDB**, simplifies managing books, sales, and inventory. It also features robust authentication for store owners, ensuring secure access to the system.
