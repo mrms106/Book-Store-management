@@ -55,5 +55,5 @@ imageurl.com/receipts.jpg)
 - **Passport.js**: Authentication middleware with Local Strategy for user management.
 
 
----
+----
 
